@@ -8,14 +8,14 @@ import { StatusBar } from "expo-status-bar";
 const backgroundImage = require("@/assets/images/home-bg-img.jpg");
 const userImage = require("@/assets/images/user.png");
 const logoLafiseImage = require("@/assets/images/logo_lafise.png");
+const sendIconImage = require("@/assets/images/icons/send-icon.png");
 
 export default function Index() {
   return (
-    <View className="flex-1">
+    <View className="flex-1 bg-gray-bg">
       <StatusBar style="light" translucent backgroundColor="transparent" />
-
-      {/* Upper section with background image and green overlay */}
-      <View className="relative h-[36%]">
+      {/* Upper section with background imarge and green overlay */}
+      <View className="relative h-[36%] mb-24">
         <View className="absolute inset-0 bg-lafise-primary" />
         <Image
           source={backgroundImage}
@@ -38,47 +38,55 @@ export default function Index() {
             <Image source={userImage} className="w-10 h-10 rounded-full" />
           </View>
 
-          <Text className="text-white text-2xl font-sans-medium mb-5">
+          <Text className="text-white text-2xl font-sans-medium mb-10">
             Mis productos
           </Text>
 
-          <View className="bg-white rounded-xl p-4 shadow-md">
-            <Text className="text-lg font-sans-medium">Cuenta de ahorro</Text>
-            <Text className="text-gray-500 text-lg font-sans">1134948394</Text>
-            <View className="flex-row justify-between items-center mt-2">
-              <Text className="text-base text-gray-500 font-sans">
-                Saldo disponible
-              </Text>
-              <Text className="text-light-green text-xs">📩</Text>
+          <View className="bg-white rounded-xl p-6 shadow-lg">
+            <View className="flex-row justify-between items-center mb-6">
+              <View>
+                <Text className="text-lg font-sans-medium">
+                  Cuenta de ahorro
+                </Text>
+                <Text className="text-gray-500 text-lg">1134948394</Text>
+              </View>
+              <Image source={sendIconImage} className="w-12 h-12" />
             </View>
-            <Text className="text-3xl font-sans-semibold xmt-1">
-              NIO 7,500.00
+
+            <Text className="text-base text-gray-500 font-sans">
+              Saldo disponible
             </Text>
+            <View className="flex-row items-start gap-3 flex-wrap">
+              <Text className="text-[1.1rem] font-sans-medium">NIO</Text>
+              <Text className="text-3xl font-sans-semibold">7,500.00</Text>
+            </View>
           </View>
         </SafeAreaView>
       </View>
 
-      <View className="flex-1 bg-gray-bg p-4">
-        <Text className="text-gray-700 text-base font-bold mb-3">
-          Operaciones rápidas
-        </Text>
-        <View className="flex-row justify-between flex-wrap">
-          {[
-            "Transferir Dinero",
-            "Pagar Servicio",
-            "Recargar celular",
-            "Retiro sin tarjeta",
-          ].map((option, index) => (
-            <TouchableOpacity
-              key={index}
-              className="w-[48%] bg-gray-200 rounded-lg p-3 mb-3 items-center"
-            >
-              <Text className="text-gray-600 text-xs">Icon {option}</Text>
-              <Text className="text-gray-800 text-sm">{option}</Text>
-            </TouchableOpacity>
-          ))}
+      {/* Starts Area after the header */}
+      <View className="flex-1 px-8">
+        <View className="rounded-lg bg-white p-6 shadow-lg">
+          <Text className="text-2xl font-sans-semibold mb-3">
+            Operaciones rápidas
+          </Text>
+          <View className="flex-row justify-between flex-wrap">
+            {[
+              "Transferir Dinero",
+              "Pagar Servicio",
+              "Recargar celular",
+              "Retiro sin tarjeta",
+            ].map((option, index) => (
+              <TouchableOpacity
+                key={index}
+                className="w-[48%] bg-gray-200 rounded-lg p-3 mb-3 items-center"
+              >
+                <Text className="text-gray-600 text-xs">Icon {option}</Text>
+                <Text className="text-gray-800 text-sm">{option}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
         </View>
-
         <View className="flex-row justify-between items-center bg-white rounded-lg p-4 mt-5">
           <View>
             <Text className="text-light-green text-xs">↓</Text>
@@ -104,6 +112,7 @@ export default function Index() {
           </Link>
         </View>
       </View>
+      {/* Ends area after the header */}
     </View>
   );
 }
