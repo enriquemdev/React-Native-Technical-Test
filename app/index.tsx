@@ -26,27 +26,27 @@ export default function Index() {
         <View className="absolute inset-0 bg-black/30" />
 
         {/* Safe Area View to avoid content overlapping with the status bar'*/}
-        <SafeAreaView className="flex-1 py-4 px-8">
-          <View className="flex-row justify-between items-center mb-5">
+        <SafeAreaView className="flex-1 py-6 px-8">
+          <View className="flex-row justify-between items-center mb-10">
             <View className="flex-row items-center gap-2">
               <Image source={logoLafiseImage} className="w-10 h-10" />
-              <Text className="text-white text-lg font-bold font-sans">
-                Hola, Josué
-              </Text>
+              <Text className="text-white text-xl font-sans">Hola, Josué</Text>
             </View>
 
             <Image source={userImage} className="w-10 h-10 rounded-full" />
           </View>
 
-          <Text className="text-white text-base font-bold mb-5">
+          <Text className="text-white text-2xl font-sans mb-5">
             Mis productos
           </Text>
 
-          <View className="bg-white rounded-lg p-4 shadow-md">
-            <Text className="text-gray-600 text-xs">Cuenta de ahorro</Text>
-            <Text className="text-gray-600 text-xs">1134948394</Text>
+          <View className="bg-white rounded-xl p-4 shadow-md">
+            <Text className="text-lg font-sans">Cuenta de ahorro</Text>
+            <Text className="text-gray-600 text-lg">1134948394</Text>
             <View className="flex-row justify-between items-center mt-2">
-              <Text className="text-lg font-bold">Saldo disponible</Text>
+              <Text className="text-lg font-bold font-sans">
+                Saldo disponible
+              </Text>
               <Text className="text-light-green text-xs">📩</Text>
             </View>
             <Text className="text-2xl font-bold text-gray-800 mt-1">
