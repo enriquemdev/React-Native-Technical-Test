@@ -7,6 +7,7 @@ import { StatusBar } from "expo-status-bar";
 // Images
 const backgroundImage = require("@/assets/images/home-bg-img.jpg");
 const userImage = require("@/assets/images/user.png");
+const logoLafiseImage = require("@/assets/images/logo_lafise.png");
 
 export default function Index() {
   return (
@@ -14,7 +15,7 @@ export default function Index() {
       <StatusBar style="light" translucent backgroundColor="transparent" />
 
       {/* Upper section with background image and green overlay */}
-      <View className="relative h-2/5">
+      <View className="relative h-[36%]">
         <View className="absolute inset-0 bg-lafise-primary" />
         <Image
           source={backgroundImage}
@@ -25,11 +26,15 @@ export default function Index() {
         <View className="absolute inset-0 bg-black/30" />
 
         {/* Safe Area View to avoid content overlapping with the status bar'*/}
-        <SafeAreaView className="flex-1 p-4">
+        <SafeAreaView className="flex-1 py-4 px-8">
           <View className="flex-row justify-between items-center mb-5">
-            <Text className="text-white text-lg font-bold font-sans">
-              Hola, Josué
-            </Text>
+            <View className="flex-row items-center gap-2">
+              <Image source={logoLafiseImage} className="w-10 h-10" />
+              <Text className="text-white text-lg font-bold font-sans">
+                Hola, Josué
+              </Text>
+            </View>
+
             <Image source={userImage} className="w-10 h-10 rounded-full" />
           </View>
 
