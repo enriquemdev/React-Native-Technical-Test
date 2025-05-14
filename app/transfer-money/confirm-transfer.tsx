@@ -1,11 +1,11 @@
-import {View, Text} from 'react-native';
+import { View, Text } from "react-native";
 
 const ConfirmTransfer = () => {
-    return (
-        <View>
-            <Text>Confirm Transfer</Text>
-        </View>
-    );
-}
+  return (
+    <View>
+      <Text>Confirm Transfer</Text>
+    </View>
+  );
+};
 
 export default ConfirmTransfer;

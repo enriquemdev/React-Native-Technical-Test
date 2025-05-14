@@ -1,11 +1,11 @@
-import {View, Text} from 'react-native';
+import { View, Text } from "react-native";
 
 const TransferMoney = () => {
-    return (
-        <View>
-            <Text>Transfer Money</Text>
-        </View>
-    );
-}
+  return (
+    <View>
+      <Text>Transfer Money</Text>
+    </View>
+  );
+};
 
 export default TransferMoney;
