@@ -25,6 +25,9 @@ module.exports = {
           purple: "#52169E",
         },
       },
+      fontFamily: {
+        sans: ["OpenSans", "sans-serif"],
+      },
     },
   },
   plugins: [],

@@ -27,7 +27,9 @@ export default function Index() {
         {/* Safe Area View to avoid content overlapping with the status bar'*/}
         <SafeAreaView className="flex-1 p-4">
           <View className="flex-row justify-between items-center mb-5">
-            <Text className="text-white text-lg font-bold">Hola, Josué</Text>
+            <Text className="text-white text-lg font-bold font-sans">
+              Hola, Josué
+            </Text>
             <Image source={userImage} className="w-10 h-10 rounded-full" />
           </View>
 
