@@ -27,6 +27,9 @@ module.exports = {
       },
       fontFamily: {
         sans: ["OpenSans", "sans-serif"],
+        "sans-medium": ["OpenSansMedium", "sans-serif"],
+        "sans-semibold": ["OpenSansSemiBold", "sans-serif"],
+        "sans-bold": ["OpenSansBold", "sans-serif"],
       },
     },
   },

@@ -30,26 +30,28 @@ export default function Index() {
           <View className="flex-row justify-between items-center mb-10">
             <View className="flex-row items-center gap-2">
               <Image source={logoLafiseImage} className="w-10 h-10" />
-              <Text className="text-white text-xl font-sans">Hola, Josué</Text>
+              <Text className="text-white text-xl font-sans-medium">
+                Hola, Josué
+              </Text>
             </View>
 
             <Image source={userImage} className="w-10 h-10 rounded-full" />
           </View>
 
-          <Text className="text-white text-2xl font-sans mb-5">
+          <Text className="text-white text-2xl font-sans-medium mb-5">
             Mis productos
           </Text>
 
           <View className="bg-white rounded-xl p-4 shadow-md">
-            <Text className="text-lg font-sans">Cuenta de ahorro</Text>
-            <Text className="text-gray-600 text-lg">1134948394</Text>
+            <Text className="text-lg font-sans-medium">Cuenta de ahorro</Text>
+            <Text className="text-gray-500 text-lg font-sans">1134948394</Text>
             <View className="flex-row justify-between items-center mt-2">
-              <Text className="text-lg font-bold font-sans">
+              <Text className="text-base text-gray-500 font-sans">
                 Saldo disponible
               </Text>
               <Text className="text-light-green text-xs">📩</Text>
             </View>
-            <Text className="text-2xl font-bold text-gray-800 mt-1">
+            <Text className="text-3xl font-sans-semibold xmt-1">
               NIO 7,500.00
             </Text>
           </View>
