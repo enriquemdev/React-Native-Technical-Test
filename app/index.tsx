@@ -17,6 +17,8 @@ const lightBulgIconImage = require("@/assets/images/icons/lightbulb_icon.png");
 const phoneIconImage = require("@/assets/images/icons/phone_icon.png");
 const moneyWithdrawalIconImage = require("@/assets/images/icons/money_withdrawal_icon.png");
 
+const arrowDownIconImage = require("@/assets/images/icons/arrow_down_icon.png");
+
 // Data
 const operations: IconCardLinkProps[] = [
   {
@@ -77,7 +79,7 @@ export default function Index() {
             Mis productos
           </Text>
 
-          <View className="bg-white rounded-2xl p-6 shadow-sm">
+          <View className="bg-white rounded-2xl p-6 shadow-sm shadow-gray-300">
             <View className="flex-row justify-between items-center mb-6">
               <View>
                 <Text className="text-lg font-sans-medium">
@@ -101,7 +103,7 @@ export default function Index() {
 
       {/* Starts Area after the header */}
       <View className="flex-1 px-8">
-        <View className="rounded-2xl bg-white p-6 shadow-sm">
+        <View className="rounded-2xl bg-white p-6 shadow-sm shadow-gray-300 mb-4">
           <Text className="text-2xl font-sans-semibold mb-3">
             Operaciones rápidas
           </Text>
@@ -111,15 +113,28 @@ export default function Index() {
             ))}
           </View>
         </View>
-        <View className="flex-row justify-between items-center bg-white rounded-lg p-4 mt-5">
-          <View>
-            <Text className="text-light-green text-xs">↓</Text>
-            <Text className="text-gray-800 text-sm font-bold">
-              Paga quincenal Banco
-            </Text>
+
+        {/* Starts third area */}
+        <View>
+          <View className="flex-row justify-between items-center border-b border-gray-200 py-4">
+            <View className="flex-row">
+              <View className="bg-pastel-green rounded-full w-16 h-16 flex items-center justify-center">
+                <Image source={arrowDownIconImage} className="w-6 h-6" />
+              </View>
+              <View className="w-4" />
+              <View className="flex-col justify-around">
+                <Text className="text-lg font-sans-bold">Paga quincenal</Text>
+                <Text className="text-gray-600 text-lg font-sans-semibold">
+                  Banco
+                </Text>
+              </View>
+            </View>
+            <View className="flex items-center">
+              <Text className="text-gray-800 text-sm">C$7,500.00</Text>
+            </View>
           </View>
-          <Text className="text-gray-800 text-sm">C$7,500.00</Text>
         </View>
+        {/*  Ends third area */}
 
         <View className="flex-row justify-around items-center bg-white p-2 border-t border-gray-200 mt-5">
           <Link href="/" className="flex items-center">
