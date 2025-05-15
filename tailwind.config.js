@@ -34,6 +34,7 @@ module.exports = {
         "sans-medium": ["OpenSansMedium", "sans-serif"],
         "sans-semibold": ["OpenSansSemiBold", "sans-serif"],
         "sans-bold": ["OpenSansBold", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
     },
   },

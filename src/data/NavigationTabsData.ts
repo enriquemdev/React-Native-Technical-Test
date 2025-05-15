@@ -9,12 +9,13 @@ export const NavigationTabsData: NavigationTabProps[] = [
     label: "Inicio",
     href: "/",
     icon: homeIconImage,
-    textClasses: "text-lafise-primary",
+    isActive: true,
   },
   {
-    label: "Perfil",
+    label: "Operaciones",
     href: "/",
     icon: arrowsIconImage,
+    isActive: false,
   },
-  { label: "Ajustes", href: "/", icon: creditCardIconImage },
+  { label: "Productos", href: "/", icon: creditCardIconImage, isActive: false },
 ];

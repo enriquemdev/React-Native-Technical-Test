@@ -6,7 +6,7 @@ export const NavigationTab = ({
   label,
   href,
   icon,
-  textClasses = "",
+  isActive,
 }: NavigationTabProps) => {
   const router = useRouter();
 
@@ -14,10 +14,12 @@ export const NavigationTab = ({
     <Pressable
       onPress={() => router.push(href)}
       className="flex-1 items-center p-4 "
-      // android_ripple={{ color: '#ccc' }}
+      android_ripple={{ color: "#ccc" }}
     >
       <Image source={icon} className="h-8 w-8 mb-4" />
-      <Text className={`${textClasses}text-gray-600 text-xs font-sans`}>
+      <Text
+        className={`text-xs font-poppins ${isActive ? "text-lafise-primary" : "text-gray-600"}`}
+      >
         {label}
       </Text>
     </Pressable>
