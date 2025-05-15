@@ -1,9 +1,9 @@
 import { Link } from "expo-router";
 import React from "react";
-import { View, Image, Text, TouchableOpacity } from "react-native";
+import { View, Image, Text, TouchableOpacity, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
-import { IconCardLink } from "@/src/components/IconCardLink";
+import { IconCardLink, BottomNavBar } from "@/src/components/common";
 import { IconCardLinkProps } from "@/src/interfaces";
 
 // Images
@@ -124,34 +124,38 @@ export default function Index() {
               <View className="w-4" />
               <View className="flex-col justify-around">
                 <Text className="text-lg font-sans-bold">Paga quincenal</Text>
-                <Text className="text-gray-600 text-lg font-sans-semibold">
+                <Text className="text-gray-500 text-lg font-sans-semibold">
                   Banco
                 </Text>
               </View>
             </View>
             <View className="flex items-center">
-              <Text className="text-gray-800 text-sm">C$7,500.00</Text>
+              <Text className="text-lafise-primary text-xl font-sans-semibold">
+                C$7,500.00
+              </Text>
             </View>
           </View>
         </View>
         {/*  Ends third area */}
-
-        <View className="flex-row justify-around items-center bg-white p-2 border-t border-gray-200 mt-5">
-          <Link href="/" className="flex items-center">
-            <Text className="text-gray-600">🏠</Text>
-            <Text className="text-xs">Inicio</Text>
-          </Link>
-          <Link href="/operations" className="flex items-center">
-            <Text className="text-gray-600">↔️</Text>
-            <Text className="text-xs">Operaciones</Text>
-          </Link>
-          <Link href="/products" className="flex items-center">
-            <Text className="text-gray-600">💳</Text>
-            <Text className="text-xs">Productos</Text>
-          </Link>
-        </View>
       </View>
       {/* Ends area after the header */}
+
+      <SafeAreaView className="absolute bottom-0 left-0 right-0 bg-white flex-row justify-around items-center py-2 h-48 shadow-lg">
+        {[
+          { label: "Inicio", href: "/home", active: true },
+          { label: "Perfil", href: "/perfil", active: false },
+          { label: "Ajustes", href: "/ajustes", active: false },
+        ].map((tab) => (
+          <Pressable
+            key={tab.href}
+            onPress={() => router.push(tab.href)}
+            className="px-4"
+          >
+            <Image source={transferIconImage} />
+            <Text className="text-gray-600">{tab.label}</Text>
+          </Pressable>
+        ))}
+      </SafeAreaView>
     </View>
   );
 }
