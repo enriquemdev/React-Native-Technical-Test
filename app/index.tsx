@@ -4,7 +4,9 @@ import { View, Image, Text, TouchableOpacity, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { IconCardLink, BottomNavBar } from "@/src/components/common";
-import { IconCardLinkProps } from "@/src/interfaces";
+import { NavigationTab } from "@/src/components/screens";
+import { IconCardLinkProps, NavigationTabProps } from "@/src/interfaces";
+import { NavigationTabsData, OperationsData } from "@/src/data";
 
 // Images
 const backgroundImage = require("@/assets/images/home-bg-img.jpg");
@@ -12,40 +14,7 @@ const userImage = require("@/assets/images/user.png");
 const logoLafiseImage = require("@/assets/images/logo_lafise.png");
 const sendIconImage = require("@/assets/images/icons/send_icon.png");
 
-const transferIconImage = require("@/assets/images/icons/transfer_icon.png");
-const lightBulgIconImage = require("@/assets/images/icons/lightbulb_icon.png");
-const phoneIconImage = require("@/assets/images/icons/phone_icon.png");
-const moneyWithdrawalIconImage = require("@/assets/images/icons/money_withdrawal_icon.png");
-
 const arrowDownIconImage = require("@/assets/images/icons/arrow_down_icon.png");
-
-// Data
-const operations: IconCardLinkProps[] = [
-  {
-    bgClass: "bg-pastel-green",
-    icon: transferIconImage,
-    title: "Transferir Dinero",
-    href: "/transfer-money",
-  },
-  {
-    bgClass: "bg-pastel-orange",
-    icon: lightBulgIconImage,
-    title: "Pagar Servicio",
-    href: "/",
-  },
-  {
-    bgClass: "bg-pastel-blue",
-    icon: phoneIconImage,
-    title: "Recargar celular",
-    href: "/",
-  },
-  {
-    bgClass: "bg-pastel-purple",
-    icon: moneyWithdrawalIconImage,
-    title: "Retiro sin tarjeta",
-    href: "/",
-  },
-];
 
 export default function Index() {
   return (
@@ -108,7 +77,7 @@ export default function Index() {
             Operaciones rápidas
           </Text>
           <View className="flex-row justify-between gap-x-6">
-            {operations.map((operation, index) => (
+            {OperationsData.map((operation, index) => (
               <IconCardLink key={operation.title} {...operation} />
             ))}
           </View>
@@ -140,22 +109,11 @@ export default function Index() {
       </View>
       {/* Ends area after the header */}
 
-      <SafeAreaView className="absolute bottom-0 left-0 right-0 bg-white flex-row justify-around items-center py-2 h-48 shadow-lg">
-        {[
-          { label: "Inicio", href: "/home", active: true },
-          { label: "Perfil", href: "/perfil", active: false },
-          { label: "Ajustes", href: "/ajustes", active: false },
-        ].map((tab) => (
-          <Pressable
-            key={tab.href}
-            onPress={() => router.push(tab.href)}
-            className="px-4"
-          >
-            <Image source={transferIconImage} />
-            <Text className="text-gray-600">{tab.label}</Text>
-          </Pressable>
+      <BottomNavBar>
+        {NavigationTabsData.map((tab: NavigationTabProps) => (
+          <NavigationTab {...tab} key={tab.label} />
         ))}
-      </SafeAreaView>
+      </BottomNavBar>
     </View>
   );
 }
