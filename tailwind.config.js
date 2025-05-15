@@ -3,7 +3,11 @@
 } = require("nativewind/src/metro/picocolors");
 module.exports = {
   // NOTE: Update this to include the paths to all of your component files.
-  content: ["./App.tsx", "./app/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./App.tsx",
+    "./app/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
@@ -12,7 +16,7 @@ module.exports = {
           primary: "#018765",
           light: "#33BA75",
         },
-        bg_icon: {
+        pastel: {
           green: "#E6F3F0",
           orange: "#FFF3E9",
           blue: "#E6F7FD",

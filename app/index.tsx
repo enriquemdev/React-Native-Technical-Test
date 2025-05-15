@@ -3,19 +3,54 @@ import React from "react";
 import { View, Image, Text, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
+import { IconCardLink } from "@/src/components/IconCardLink";
+import { IconCardLinkProps } from "@/src/interfaces";
 
 // Images
 const backgroundImage = require("@/assets/images/home-bg-img.jpg");
 const userImage = require("@/assets/images/user.png");
 const logoLafiseImage = require("@/assets/images/logo_lafise.png");
-const sendIconImage = require("@/assets/images/icons/send-icon.png");
+const sendIconImage = require("@/assets/images/icons/send_icon.png");
+
+const transferIconImage = require("@/assets/images/icons/transfer_icon.png");
+const lightBulgIconImage = require("@/assets/images/icons/lightbulb_icon.png");
+const phoneIconImage = require("@/assets/images/icons/phone_icon.png");
+const moneyWithdrawalIconImage = require("@/assets/images/icons/money_withdrawal_icon.png");
+
+// Data
+const operations: IconCardLinkProps[] = [
+  {
+    bgClass: "bg-pastel-green",
+    icon: transferIconImage,
+    title: "Transferir Dinero",
+    href: "/transfer-money",
+  },
+  {
+    bgClass: "bg-pastel-orange",
+    icon: lightBulgIconImage,
+    title: "Pagar Servicio",
+    href: "/",
+  },
+  {
+    bgClass: "bg-pastel-blue",
+    icon: phoneIconImage,
+    title: "Recargar celular",
+    href: "/",
+  },
+  {
+    bgClass: "bg-pastel-purple",
+    icon: moneyWithdrawalIconImage,
+    title: "Retiro sin tarjeta",
+    href: "/",
+  },
+];
 
 export default function Index() {
   return (
-    <View className="flex-1 bg-gray-bg">
+    <View className="flex-1 bg-[#FBFBFB]">
       <StatusBar style="light" translucent backgroundColor="transparent" />
       {/* Upper section with background imarge and green overlay */}
-      <View className="relative h-[36%] mb-24">
+      <View className="relative h-[36%] mb-16">
         <View className="absolute inset-0 bg-lafise-primary" />
         <Image
           source={backgroundImage}
@@ -42,7 +77,7 @@ export default function Index() {
             Mis productos
           </Text>
 
-          <View className="bg-white rounded-xl p-6 shadow-lg">
+          <View className="bg-white rounded-2xl p-6 shadow-sm">
             <View className="flex-row justify-between items-center mb-6">
               <View>
                 <Text className="text-lg font-sans-medium">
@@ -66,24 +101,13 @@ export default function Index() {
 
       {/* Starts Area after the header */}
       <View className="flex-1 px-8">
-        <View className="rounded-lg bg-white p-6 shadow-lg">
+        <View className="rounded-2xl bg-white p-6 shadow-sm">
           <Text className="text-2xl font-sans-semibold mb-3">
             Operaciones rápidas
           </Text>
-          <View className="flex-row justify-between flex-wrap">
-            {[
-              "Transferir Dinero",
-              "Pagar Servicio",
-              "Recargar celular",
-              "Retiro sin tarjeta",
-            ].map((option, index) => (
-              <TouchableOpacity
-                key={index}
-                className="w-[48%] bg-gray-200 rounded-lg p-3 mb-3 items-center"
-              >
-                <Text className="text-gray-600 text-xs">Icon {option}</Text>
-                <Text className="text-gray-800 text-sm">{option}</Text>
-              </TouchableOpacity>
+          <View className="flex-row justify-between gap-x-6">
+            {operations.map((operation, index) => (
+              <IconCardLink key={operation.title} {...operation} />
             ))}
           </View>
         </View>
