@@ -4,4 +4,5 @@ export interface NavigationTabProps {
   label: string;
   href: string;
   icon: ImageSourcePropType;
+  textClasses?: string;
 }

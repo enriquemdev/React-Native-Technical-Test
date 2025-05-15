@@ -5,7 +5,16 @@ const arrowsIconImage = require("@/assets/images/icons/arrows_icon.png");
 const creditCardIconImage = require("@/assets/images/icons/credit_card_icon.png");
 
 export const NavigationTabsData: NavigationTabProps[] = [
-  { label: "Inicio", href: "/", icon: homeIconImage },
-  { label: "Perfil", href: "/", icon: arrowsIconImage },
+  {
+    label: "Inicio",
+    href: "/",
+    icon: homeIconImage,
+    textClasses: "text-lafise-primary",
+  },
+  {
+    label: "Perfil",
+    href: "/",
+    icon: arrowsIconImage,
+  },
   { label: "Ajustes", href: "/", icon: creditCardIconImage },
 ];
