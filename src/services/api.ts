@@ -1,6 +1,6 @@
 import axios, { AxiosError } from "axios";
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: process.env.EXPO_PUBLIC_API_URL,
   timeout: 10000,
 });
@@ -21,5 +21,3 @@ api.interceptors.response.use(
     return Promise.reject({ message });
   },
 );
-
-export default api;
