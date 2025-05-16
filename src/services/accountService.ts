@@ -1,4 +1,4 @@
-import { api } from "@/src/services";
+import { api } from "./api";
 import { Account } from "@/src/interfaces";
 
 export const fetchAccount = async (accountId: string): Promise<Account> => {

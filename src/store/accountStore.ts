@@ -1,8 +1,8 @@
 import { create } from "zustand";
-import { fetchAccount, fetchTransactions } from "@/src/services";
-import { AccountState } from "@/src/interfaces";
+import { fetchAccount, fetchTransactions } from "../services";
+import { AccountState } from "../interfaces";
 
-export const useBankStore = create<AccountState>((set) => ({
+export const useAccountStore = create<AccountState>((set) => ({
   account: null,
   accountLoading: false,
   accountError: null,
@@ -37,8 +37,11 @@ export const useBankStore = create<AccountState>((set) => ({
     }
   },
 
-  fetchAllData: function (accountId: string) {
-    this.fetchAccountData(accountId);
-    this.fetchTransactionsData(accountId);
+  fetchAllData: (accountId: string) => {
+    set((state) => {
+      state.fetchAccountData(accountId);
+      state.fetchTransactionsData(accountId);
+      return state;
+    });
   },
 }));

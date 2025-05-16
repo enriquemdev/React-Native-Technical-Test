@@ -1,4 +1,4 @@
-import { api } from "@/src/services";
+import { api } from "./api";
 import { Transaction } from "@/src/interfaces";
 
 export const fetchTransactions = async (
