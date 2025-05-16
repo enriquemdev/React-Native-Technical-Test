@@ -1,5 +1,6 @@
 import { Image, Text, View } from "react-native";
 import { Account } from "@/src/interfaces";
+import NumberFormatter from "@/src/components/common/NumberFormatter";
 
 const sendIconImage = require("@/assets/images/icons/send_icon.png");
 
@@ -23,7 +24,10 @@ export const AccountCard = ({ account }: { account: Account }) => {
         <Text className="text-[1.1rem] font-sans-medium">
           {account?.currency}
         </Text>
-        <Text className="text-3xl font-sans-semibold">{account?.balance}</Text>
+        <NumberFormatter
+          classNames="text-3xl font-sans-semibold"
+          value={account?.balance}
+        />
       </View>
     </View>
   );
