@@ -9,4 +9,5 @@ export interface Transaction {
   };
   origin: string;
   destination: string;
+  transaction_date: string;
 }

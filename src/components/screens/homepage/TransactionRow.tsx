@@ -1,8 +1,14 @@
 import { Image, Text, View } from "react-native";
+import { Transaction } from "@/src/interfaces";
+import CurrencyFormatter from "@/src/components/common/CurrencyFormatter";
 
 const arrowDownIconImage = require("@/assets/images/icons/arrow_down_icon.png");
 
-export const TransactionRow = () => {
+export const TransactionRow = ({
+  transaction,
+}: {
+  transaction: Transaction;
+}) => {
   return (
     <View className="flex-row justify-between items-center border-b border-gray-200 py-4">
       <View className="flex-row">
@@ -11,16 +17,20 @@ export const TransactionRow = () => {
         </View>
         <View className="w-4" />
         <View className="flex-col justify-around">
-          <Text className="text-lg font-sans-bold">Paga quincenal</Text>
+          <Text className="text-lg font-sans-bold">
+            {transaction?.description}
+          </Text>
           <Text className="text-gray-500 text-lg font-sans-semibold">
-            Banco
+            {transaction?.bank_description}
           </Text>
         </View>
       </View>
       <View className="flex items-center">
-        <Text className="text-lafise-primary text-xl font-sans-semibold">
-          C$7,500.00
-        </Text>
+        <CurrencyFormatter
+          className="text-lafise-primary text-xl font-sans-semibold"
+          currency={transaction?.amount?.currency}
+          value={transaction?.amount?.value}
+        />
       </View>
     </View>
   );

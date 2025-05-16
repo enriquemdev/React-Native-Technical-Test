@@ -13,19 +13,16 @@ import { useAccountStore } from "@/src/store";
 import { useEffect } from "react";
 
 export default function Index() {
-  // const {
-  //   account,
-  //   accountLoading,
-  //   accountError,
-  //   transactions,
-  //   transactionsLoading,
-  //   transactionsError,
-  //   fetchAllData,
-  // } = useAccountStore();
-  //
-  // useEffect(() => {
-  //   fetchAllData(process.env.EXPO_PUBLIC_ACCOUNT_ID as string);
-  // }, [fetchAllData]);
+  const {
+    transactions,
+    transactionsLoading,
+    transactionsError,
+    fetchTransactionsData,
+  } = useAccountStore();
+
+  useEffect(() => {
+    fetchTransactionsData(process.env.EXPO_PUBLIC_ACCOUNT_ID as string);
+  }, [fetchTransactionsData]);
 
   return (
     <View className="flex-1 bg-[#FBFBFB]">
@@ -36,11 +33,21 @@ export default function Index() {
       <View className="flex-1 px-8">
         <QuickOperationsSection />
 
-        {/* Starts transactions Section */}
         <View>
-          <TransactionRow />
+          {transactionsLoading ? (
+            <Text>Cargando transacciones...</Text>
+          ) : transactionsError ? (
+            <Text className="text-red-500">{transactionsError}</Text>
+          ) : transactions.length > 0 ? (
+            <View>
+              {transactions.map((tx) => (
+                <TransactionRow key={tx.transaction_number} transaction={tx} />
+              ))}
+            </View>
+          ) : (
+            <Text>No hay transacciones disponibles</Text>
+          )}
         </View>
-        {/*  Ends transactions Section */}
       </View>
 
       {/* Bottom Navigation Section */}
