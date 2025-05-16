@@ -51,7 +51,7 @@ export default function Index() {
       </View>
 
       {/* Bottom Navigation Section */}
-      <BottomNavBar>
+      <BottomNavBar classNames="shadow-sm">
         {NavigationTabsData.map((tab: NavigationTabProps) => (
           <NavigationTab {...tab} key={tab.label} />
         ))}
