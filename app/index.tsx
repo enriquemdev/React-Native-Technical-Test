@@ -13,19 +13,19 @@ import { useAccountStore } from "@/src/store";
 import { useEffect } from "react";
 
 export default function Index() {
-  const {
-    account,
-    accountLoading,
-    accountError,
-    transactions,
-    transactionsLoading,
-    transactionsError,
-    fetchAllData,
-  } = useAccountStore();
-
-  useEffect(() => {
-    fetchAllData(process.env.EXPO_PUBLIC_ACCOUNT_ID as string);
-  }, [fetchAllData]);
+  // const {
+  //   account,
+  //   accountLoading,
+  //   accountError,
+  //   transactions,
+  //   transactionsLoading,
+  //   transactionsError,
+  //   fetchAllData,
+  // } = useAccountStore();
+  //
+  // useEffect(() => {
+  //   fetchAllData(process.env.EXPO_PUBLIC_ACCOUNT_ID as string);
+  // }, [fetchAllData]);
 
   return (
     <View className="flex-1 bg-[#FBFBFB]">
@@ -39,7 +39,6 @@ export default function Index() {
         {/* Starts transactions Section */}
         <View>
           <TransactionRow />
-          <Text>{account?.balance}</Text>
         </View>
         {/*  Ends transactions Section */}
       </View>

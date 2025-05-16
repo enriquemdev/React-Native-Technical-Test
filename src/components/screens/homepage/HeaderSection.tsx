@@ -1,13 +1,23 @@
 import { Image, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Account } from "@/src/interfaces";
+import { AccountCard } from "@/src/components/screens/homepage/AccountCard";
+import { useAccountStore } from "@/src/store";
+import { useEffect } from "react";
 
 // Images
 const backgroundImage = require("@/assets/images/home-bg-img.jpg");
 const userImage = require("@/assets/images/user.png");
 const logoLafiseImage = require("@/assets/images/logo_lafise.png");
-const sendIconImage = require("@/assets/images/icons/send_icon.png");
 
 export const HeaderSection = () => {
+  const { account, accountLoading, accountError, fetchAccountData } =
+    useAccountStore();
+
+  useEffect(() => {
+    fetchAccountData(process.env.EXPO_PUBLIC_ACCOUNT_ID as string);
+  }, [fetchAccountData]);
+
   return (
     <View className="relative h-[36%] mb-16">
       <View className="absolute inset-0 bg-lafise-primary" />
@@ -36,23 +46,13 @@ export const HeaderSection = () => {
           Mis productos
         </Text>
 
-        <View className="bg-white rounded-2xl p-6 shadow-sm shadow-gray-300">
-          <View className="flex-row justify-between items-center mb-6">
-            <View>
-              <Text className="text-lg font-sans-medium">Cuenta de ahorro</Text>
-              <Text className="text-gray-500 text-lg">1134948394</Text>
-            </View>
-            <Image source={sendIconImage} className="w-12 h-12" />
-          </View>
-
-          <Text className="text-base text-gray-500 font-sans">
-            Saldo disponible
-          </Text>
-          <View className="flex-row items-start gap-3 flex-wrap">
-            <Text className="text-[1.1rem] font-sans-medium">NIO</Text>
-            <Text className="text-3xl font-sans-semibold">7,500.00</Text>
-          </View>
-        </View>
+        {accountLoading ? (
+          <Text>Cargando cuenta...</Text>
+        ) : accountError ? (
+          <Text className="text-red-500">{accountError}</Text>
+        ) : account ? (
+          <AccountCard account={account} />
+        ) : null}
       </SafeAreaView>
     </View>
   );
